@@ -1,3 +1,7 @@
+
+<!-- When you place ngModel on the input type or the select type than only, 
+  it is passed in the values array of the form element -->
+
 <div class="container">
   <div class="row">
     <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
@@ -31,10 +35,18 @@
         </div>
         <div class="form-group">
           <label for="secret">Secret Questions</label>
-          <select 
+          <!-- <select 
             id="secret" 
             class="form-control"
             ngModel
+            name="secret">
+            <option value="pet">Your first Pet?</option>
+            <option value="teacher">Your first teacher?</option>
+          </select> -->
+          <select 
+            id="secret" 
+            class="form-control"
+            [ngModel]="defaultQuestion"
             name="secret">
             <option value="pet">Your first Pet?</option>
             <option value="teacher">Your first teacher?</option>
