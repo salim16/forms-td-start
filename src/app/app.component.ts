@@ -11,6 +11,7 @@ export class AppComponent {
   answer : '';
 
   @ViewChild('f', {static: true}) signUpForm: NgForm;
+  @ViewChild('e', {static: true}) emailElement: NgForm;
 
   suggestUserName() {
     const suggestedName = 'Superuser';
@@ -22,5 +23,6 @@ export class AppComponent {
 
   onSubmit() {
     console.log(this.signUpForm);
+    console.log(this.emailElement);
   }
 }
