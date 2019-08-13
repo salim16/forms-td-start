@@ -9,6 +9,7 @@ import { NgForm } from '@angular/forms';
 export class AppComponent {
   defaultQuestion = "teacher";
   answer : '';
+  genders: string[] = ['Male', 'Female']
 
   @ViewChild('f', {static: true}) signUpForm: NgForm;
   @ViewChild('e', {static: true}) emailElement: NgForm;
