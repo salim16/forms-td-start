@@ -2,6 +2,8 @@
 <!-- When you place ngModel on the input type or the select type than only, 
   it is passed in the values array of the form element -->
 
+<!-- This example contains all 3 forms of ngModel, 1) no binding, 2) One way binding and 3) Two way binding-->
+
 <div class="container">
   <div class="row">
     <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
@@ -53,6 +55,14 @@
             <option value="teacher">Your first teacher?</option>
           </select>
         </div>
+        <div class="form-group">
+            <textarea 
+              name="questionAnswer"
+              class="form-control"
+              rows="3"
+              [(ngModel)]="answer"></textarea>
+        </div>
+        <p>Your reply: {{ answer }} </p>
         <button 
           class="btn btn-primary" 
           type="submit" [disabled]="!f.valid">Submit</button>

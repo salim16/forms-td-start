@@ -8,6 +8,7 @@ import { NgForm } from '@angular/forms';
 })
 export class AppComponent {
   defaultQuestion = "teacher";
+  answer : '';
 
   @ViewChild('f', {static: true}) signUpForm: NgForm;
 
