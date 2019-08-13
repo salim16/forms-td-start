@@ -33,7 +33,8 @@
               required
               email
               #e="ngModel">
-            <span class="help-block" *ngIf="!e.valid && e.touched">Please enter a valid email!</span>
+            <!-- <span class="help-block" *ngIf="!e.valid && e.touched">Please enter a valid email!</span> -->
+            <span class="help-block" [ngStyle]="{'visibility':!e.valid && e.touched ? 'visible' : 'hidden'}">Please enter a valid email!</span>
           </div>
         </div>
         <div class="form-group">
