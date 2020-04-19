@@ -19,14 +19,15 @@ export class AppComponent {
   };
   submitted = false;
 
-  @ViewChild('f', {static: true}) signUpForm: NgForm;
-  @ViewChild('e', {static: true}) emailElement: NgForm;
+  @ViewChild('f', {static: false}) signUpForm: NgForm;
+  // static true is used when we use these references inside ngOnInit
+  @ViewChild('e', {static: false}) emailElement: NgForm;
 
   suggestUserName() {
     const suggestedName = 'Superuser';
-    // setValue method sets the value for the whole form at once whereas
-    // pathValue() method only overrrides the properties passed to override.
-
+    // with setValue method we need to set the value for the whole form at once whereas
+    // patchValue() method only overrrides the properties passed to override.
+    
     // this.signUpForm.setValue({
     //   userData: {
     //     username: suggestedName,
@@ -39,25 +40,27 @@ export class AppComponent {
 
     this.signUpForm.form.patchValue({
       userData: {
-        username: suggestedName
+        nameOfUser: suggestedName
       }
     });
   }
 
-  // onSubmit(form: NgForm) {
-  //   console.log(form);
-  // }
+  /*onSubmit(form: NgForm) {
+
+     console.log(form);
+  }*/
 
   onSubmit() {
     console.log(this.signUpForm);
     console.log(this.emailElement);
     this.submitted = true;
-    this.user.username = this.signUpForm.value.userData.username;
-    this.user.email = this.signUpForm.value.userData.email;
+    this.user.username = this.signUpForm.value.userData.nameOfUser; // name attribute of the element
+    this.user.email = this.signUpForm.value.userData.emailofuser; // email attribute of the element
     this.user.secretQuestion = this.signUpForm.value.secret;
     this.user.answer = this.signUpForm.value.questionAnswer;
     this.user.gender = this.signUpForm.value.gender;
 
-    this.signUpForm.reset();
+    this.signUpForm.reset(); // reset also removes all the controls, classes of angular and everthing,
+    // it is as if the page is loaded for the first time 
   }
 }
